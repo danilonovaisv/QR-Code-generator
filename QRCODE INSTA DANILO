@@ -1,1 +1,7 @@
 QR CODE ISTA DANILO
+from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
+
+controlnet = ControlNetModel.from_pretrained("monster-labs/control_v1p_sd15_qrcode_monster")
+pipeline = StableDiffusionControlNetPipeline.from_pretrained(
+	"fill-in-base-model", controlnet=controlnet
+)
